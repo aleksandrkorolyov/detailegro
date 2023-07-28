@@ -45,4 +45,13 @@ class CarRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    public function findAllWithParts() {
+        return $this->createQueryBuilder('c')
+        ->addSelect('p')
+        ->leftJoin('c.carParts', 'p')
+        ->orderBy('c.id', 'ASC')
+        ->getQuery()
+        ->getResult();
+    }
 }
