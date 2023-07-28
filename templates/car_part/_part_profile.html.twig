@@ -1,0 +1,11 @@
+  <div class="mb-4">
+        <div class="text-2xl">
+            {{ car_part.name }}
+        </div>
+        <div class="text-xl dark:text-gray-400">
+            {{ car_part.describrtion }}
+        </div>
+        <div class="flex">
+            <img class="object-scale-down h-48 w-48 rounded" src="{{ car_part.getImageUrl() }}"">
+        </div>
+    </div>

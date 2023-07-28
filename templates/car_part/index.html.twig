@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List of all details{% endblock %}
+
+{% block body %}
+
+<a href= {{ path('app_car_part_new') }}>
+<button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+  + Add Car detail
+</button>
+</a>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+  {% if car_parts|length > 0 %}
+    {% for car_part in car_parts %}
+      <a href={{ path('app_car_part_show', {id: car_part.id}) }}>
+        {{ include('car_part/_part_profile.html.twig', {car_part: car_part}) }}
+      </a>
+    {% endfor %}
+  {% else %}
+    There's nothing here yet!
+  {% endif %}
+</div>
+
+{% endblock %}

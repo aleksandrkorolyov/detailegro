@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{car.brand}} {{ car.model }} page {% endblock %}
+
+{% block body %}
+
+{{ include('car/_car_item.html.twig', {car: car}) }}
+
+<a href= {{ path('app_car_remove', {car: car.id}) }}>
+    <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+        Remove Car
+    </button>
+</a>
+
+<a href={{ path('app_car_list') }}> Back</a>
+
+{% endblock %}

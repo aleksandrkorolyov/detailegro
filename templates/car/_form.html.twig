@@ -1,0 +1,31 @@
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+<div>{{ form_errors(form)}}</div>
+
+<div>
+  {{ form_label(form.brand, 'Please enter the brand', {'label_attr': {'class': 'block text-sm text-gray-700 dark:text-gray-300 font-medium'}}) }}
+  {{ form_widget(form.brand, {'attr': {'class': 'block w-full shadow-sm border-gray-300 dark:border-transparent dark:text-gray-800 rounded-md border p-2 mt-1 mb-2'}})}}
+  {{ form_errors(form.brand) }}
+</div>
+
+<div>
+  {{ form_label(form.model, 'Please enter the model', {'label_attr': {'class': 'block text-sm text-gray-700 dark:text-gray-300 font-medium'}}) }}
+  {{ form_widget(form.model, {'attr': {'class': 'block w-full shadow-sm border-gray-300 dark:border-transparent dark:text-gray-800 rounded-md border p-2 mt-1 mb-2'}}) }}
+  {{ form_errors(form.model) }}
+</div>
+
+<div>
+  {{ form_label(form.fuel, 'Please enter the fuel type', {'label_attr': {'class': 'block text-sm text-gray-700 dark:text-gray-300 font-medium'}}) }}
+  {{ form_widget(form.fuel, {'attr': {'class': 'block w-full shadow-sm border-gray-300 dark:border-transparent dark:text-gray-800 rounded-md border p-2 mt-1 mb-2'}}) }}
+  {{ form_errors(form.fuel) }}
+</div>
+
+<div>
+  {{ form_label(form.image_url, 'Please enter image URL', {'label_attr': {'class': 'block text-sm text-gray-700 dark:text-gray-300 font-medium'}}) }}
+  {{ form_widget(form.image_url, {'attr': {'class': 'block w-full shadow-sm border-gray-300 dark:border-transparent dark:text-gray-800 rounded-md border p-2 mt-1 mb-2'}}) }}
+  {{ form_errors(form.image_url) }}
+</div>
+
+<div>
+  <button type="submit" class="block w-full shadow-sm border-transparent bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-400 text-white rounded-md border p-2 mt-4 mb-2">Add car</button>
+</div>
+{{ form_end(form) }}

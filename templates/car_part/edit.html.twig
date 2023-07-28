@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit CarPart{% endblock %}
+
+{% block body %}
+    <h1>Edit CarPart</h1>
+
+    {{ include('car_part/_form.html.twig') }}
+
+     <a href="{{ path('app_car_part_index') }}">
+        <div>
+            <button type="submit" class="block w-full shadow-sm border-transparent bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-400 text-white rounded-md border p-2 mt-4 mb-2">Update car part</button>
+        </div>
+    </a>
+
+    <a href="{{ path('app_car_part_index') }}">
+         <div>
+            <button class="block w-full shadow-sm border-transparent bg-gray-500 hover:bg-gray-700 dark:bg-gray-500 dark:hover:bg-gray-400 text-white rounded-md border p-2 mt-4 mb-2">Back to parts list</button>
+        </div>
+    </a>
+
+    {{ include('car_part/_delete_form.html.twig') }}
+{% endblock %}
