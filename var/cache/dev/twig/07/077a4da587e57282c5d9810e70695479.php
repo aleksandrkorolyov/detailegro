@@ -62,10 +62,17 @@ class __TwigTemplate_348d823e193ee1175faa2c85e4fe6578 extends Template
         <div class=\"flex\">
             <img class=\"object-scale-down h-48 w-48 rounded\" src=\"";
         // line 12
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["car"]) || array_key_exists("car", $context) ? $context["car"] : (function () { throw new RuntimeError('Variable "car" does not exist.', 12, $this->source); })()), "getImageUrl", [], "method", false, false, false, 12), "html", null, true);
+        echo twig_escape_filter($this->env, ((isset($context["car_images"]) || array_key_exists("car_images", $context) ? $context["car_images"] : (function () { throw new RuntimeError('Variable "car_images" does not exist.', 12, $this->source); })()) . twig_get_attribute($this->env, $this->source, (isset($context["car"]) || array_key_exists("car", $context) ? $context["car"] : (function () { throw new RuntimeError('Variable "car" does not exist.', 12, $this->source); })()), "getImageUrl", [], "method", false, false, false, 12)), "html", null, true);
         echo "\"\">
         </div>
-    </div>";
+        <div class=\"text-sm text-gray-500 dark:text-gray-400\">
+            Avaliable parts: ";
+        // line 15
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["car"]) || array_key_exists("car", $context) ? $context["car"] : (function () { throw new RuntimeError('Variable "car" does not exist.', 15, $this->source); })()), "carParts", [], "any", false, false, false, 15), "count", [], "any", false, false, false, 15), "html", null, true);
+        echo "
+        </div>
+    </div>
+";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
 
@@ -86,7 +93,7 @@ class __TwigTemplate_348d823e193ee1175faa2c85e4fe6578 extends Template
 
     public function getDebugInfo()
     {
-        return array (  65 => 12,  59 => 9,  53 => 6,  47 => 3,  43 => 1,);
+        return array (  71 => 15,  65 => 12,  59 => 9,  53 => 6,  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -102,8 +109,12 @@ class __TwigTemplate_348d823e193ee1175faa2c85e4fe6578 extends Template
             {{ car.fuel }}
         </div>
         <div class=\"flex\">
-            <img class=\"object-scale-down h-48 w-48 rounded\" src=\"{{ car.getImageUrl() }}\"\">
+            <img class=\"object-scale-down h-48 w-48 rounded\" src=\"{{ car_images ~ car.getImageUrl() }}\"\">
         </div>
-    </div>", "car/_car_profile.html.twig", "/home/alex/SE/data_warehouse/templates/car/_car_profile.html.twig");
+        <div class=\"text-sm text-gray-500 dark:text-gray-400\">
+            Avaliable parts: {{ car.carParts.count }}
+        </div>
+    </div>
+", "car/_car_profile.html.twig", "/home/alex/SE/data_warehouse/templates/car/_car_profile.html.twig");
     }
 }

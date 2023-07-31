@@ -64,6 +64,8 @@
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
+    <parameter key="car_images">/uploads/car_images/</parameter>
+    <parameter key="car_image_directory">/home/alex/SE/data_warehouse/public/uploads/car_images</parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
       <parameter key="Symfony\Component\Console\Event\ConsoleErrorEvent">console.error</parameter>
@@ -363,7 +365,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.RPIBWEY"/>
+      <argument type="service" id=".service_locator.jGBxk9h"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -1691,7 +1693,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.RPIBWEY"/>
+      <argument type="service" id=".service_locator.jGBxk9h"/>
     </service>
     <service id="routing.resolver" class="Symfony\Component\Config\Loader\LoaderResolver">
       <call method="addLoader">
@@ -2645,6 +2647,11 @@
       <tag name="data_collector" template="@WebProfiler/Collector/validator.html.twig" id="validator" priority="320"/>
       <argument type="service" id="debug.validator"/>
     </service>
+    <service id="mime_types" class="Symfony\Component\Mime\MimeTypes">
+      <call method="setDefault">
+        <argument type="service" id="mime_types"/>
+      </call>
+    </service>
     <service id="data_collector.doctrine" class="Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector">
       <tag name="data_collector" template="@Doctrine/Collector/db.html.twig" id="db" priority="250"/>
       <argument type="service" id="doctrine"/>
@@ -3339,6 +3346,10 @@
       </call>
       <call method="addRuntimeLoader">
         <argument type="service" id="twig.runtime_loader"/>
+      </call>
+      <call method="addGlobal">
+        <argument>car_images</argument>
+        <argument>/uploads/car_images/</argument>
       </call>
       <configurator service="twig.configurator.environment" method="configure"/>
     </service>
@@ -5013,16 +5024,25 @@
         <argument key="carRepository" type="service_closure" id="App\Repository\CarRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.CsMkqUa" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.txU.nYQ" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="slugger" type="service_closure" id="slugger"/>
       </argument>
     </service>
     <service id=".service_locator.2lTRklS" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="car" type="service_closure" id=".errored..service_locator.2lTRklS.App\Entity\Car"/>
+      </argument>
+    </service>
+    <service id=".service_locator.HLGwe6u" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="car" type="service_closure" id=".errored..service_locator.HLGwe6u.App\Entity\Car"/>
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="slugger" type="service_closure" id="slugger"/>
       </argument>
     </service>
     <service id=".service_locator.KNAnNql" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -5036,6 +5056,12 @@
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="carPartRepository" type="service_closure" id="App\Repository\CarPartRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.CsMkqUa" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
     <service id=".service_locator.yRMtD6O" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -5057,13 +5083,13 @@
         <argument key="user" type="service_closure" id="App\Repository\UserRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.RPIBWEY" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.jGBxk9h" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\CarController::delete" type="service_closure" id=".service_locator.KNAnNql"/>
-        <argument key="App\Controller\CarController::edit" type="service_closure" id=".service_locator.KNAnNql"/>
+        <argument key="App\Controller\CarController::edit" type="service_closure" id=".service_locator.HLGwe6u"/>
         <argument key="App\Controller\CarController::index" type="service_closure" id=".service_locator.3LuXUDl"/>
-        <argument key="App\Controller\CarController::new" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CarController::new" type="service_closure" id=".service_locator.txU.nYQ"/>
         <argument key="App\Controller\CarController::show" type="service_closure" id=".service_locator.2lTRklS"/>
         <argument key="App\Controller\CarPartController::delete" type="service_closure" id=".service_locator.zh6TZt9"/>
         <argument key="App\Controller\CarPartController::edit" type="service_closure" id=".service_locator.zh6TZt9"/>
@@ -5076,9 +5102,9 @@
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="App\Controller\CarController:delete" type="service_closure" id=".service_locator.KNAnNql"/>
-        <argument key="App\Controller\CarController:edit" type="service_closure" id=".service_locator.KNAnNql"/>
+        <argument key="App\Controller\CarController:edit" type="service_closure" id=".service_locator.HLGwe6u"/>
         <argument key="App\Controller\CarController:index" type="service_closure" id=".service_locator.3LuXUDl"/>
-        <argument key="App\Controller\CarController:new" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\CarController:new" type="service_closure" id=".service_locator.txU.nYQ"/>
         <argument key="App\Controller\CarController:show" type="service_closure" id=".service_locator.2lTRklS"/>
         <argument key="App\Controller\CarPartController:delete" type="service_closure" id=".service_locator.zh6TZt9"/>
         <argument key="App\Controller\CarPartController:edit" type="service_closure" id=".service_locator.zh6TZt9"/>
@@ -5549,6 +5575,9 @@
     </service>
     <service id=".errored..service_locator.2lTRklS.App\Entity\Car" class="App\Entity\Car">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.2lTRklS&quot;: it needs an instance of &quot;App\Entity\Car&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    </service>
+    <service id=".errored..service_locator.HLGwe6u.App\Entity\Car" class="App\Entity\Car">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.HLGwe6u&quot;: it needs an instance of &quot;App\Entity\Car&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
     </service>
     <service id=".errored..service_locator.KNAnNql.App\Entity\Car" class="App\Entity\Car">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.KNAnNql&quot;: it needs an instance of &quot;App\Entity\Car&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
@@ -6289,6 +6318,8 @@
     <service id="form.choice_list_factory" alias="form.choice_list_factory.cached"/>
     <service id="Symfony\Component\Validator\Validator\ValidatorInterface" alias="debug.validator"/>
     <service id="validator.mapping.class_metadata_factory" alias="debug.validator"/>
+    <service id="Symfony\Component\Mime\MimeTypesInterface" alias="mime_types"/>
+    <service id="Symfony\Component\Mime\MimeTypeGuesserInterface" alias="mime_types"/>
     <service id="Doctrine\DBAL\Connection" alias="doctrine.dbal.default_connection"/>
     <service id="Doctrine\Persistence\ManagerRegistry" alias="doctrine"/>
     <service id="Doctrine\Common\Persistence\ManagerRegistry" alias="doctrine"/>
@@ -6334,12 +6365,14 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.7nzbL4K" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.RPIBWEY"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.jGBxk9h"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface" alias="logger"/>
     <service id=".service_locator.o.uf2zi" alias=".service_locator.7nzbL4K"/>
-    <service id=".service_locator.4OKfs0B" alias=".service_locator.RPIBWEY"/>
+    <service id=".service_locator.LNwsF6h" alias=".service_locator.txU.nYQ"/>
+    <service id=".service_locator.Dm9lZj0" alias=".service_locator.HLGwe6u"/>
+    <service id=".service_locator.FXSZ1WX" alias=".service_locator.jGBxk9h"/>
     <service id=".service_locator.BFrsqsn" alias=".service_locator.F9PKc.7"/>
     <service id=".service_locator.GEE2X15" alias=".service_locator.uWzzvdO"/>
     <service id=".service_locator.LMuqDDe" alias=".service_locator.VHsrTPK"/>
@@ -6357,10 +6390,12 @@
     <service id="security.event_dispatcher.main" alias="debug.security.event_dispatcher.main"/>
     <service id=".service_locator.gFlme_s" alias=".service_locator.y4_Zrx."/>
     <service id=".service_locator.6_u.6L1" alias=".service_locator.3LuXUDl"/>
-    <service id=".service_locator.9e2t_lq" alias=".service_locator.CsMkqUa"/>
+    <service id=".service_locator.lUJI3Z8" alias=".service_locator.txU.nYQ"/>
     <service id=".service_locator.Qp57TTB" alias=".service_locator.2lTRklS"/>
+    <service id=".service_locator.EtnDtc3" alias=".service_locator.HLGwe6u"/>
     <service id=".service_locator.nPo87VK" alias=".service_locator.KNAnNql"/>
     <service id=".service_locator.d8I4zli" alias=".service_locator.raXW2PH"/>
+    <service id=".service_locator.9e2t_lq" alias=".service_locator.CsMkqUa"/>
     <service id=".service_locator.7WEfrWE" alias=".service_locator.yRMtD6O"/>
     <service id=".service_locator.Lyt3rLH" alias=".service_locator.zh6TZt9"/>
     <service id=".service_locator.hVcQyk7" alias=".service_locator.RtUoSKI"/>

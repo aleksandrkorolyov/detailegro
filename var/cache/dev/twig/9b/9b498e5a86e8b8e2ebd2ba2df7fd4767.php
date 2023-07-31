@@ -109,7 +109,7 @@ class __TwigTemplate_d5ae19ff706b3dd6c0cf79370c4e6c57 extends Template
         <div class=\"flex\">
             <img class=\"object-scale-down h-48 w-48 rounded\" src=\"";
         // line 19
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["car"]) || array_key_exists("car", $context) ? $context["car"] : (function () { throw new RuntimeError('Variable "car" does not exist.', 19, $this->source); })()), "getImageUrl", [], "method", false, false, false, 19), "html", null, true);
+        echo twig_escape_filter($this->env, ((isset($context["car_images"]) || array_key_exists("car_images", $context) ? $context["car_images"] : (function () { throw new RuntimeError('Variable "car_images" does not exist.', 19, $this->source); })()) . twig_get_attribute($this->env, $this->source, (isset($context["car"]) || array_key_exists("car", $context) ? $context["car"] : (function () { throw new RuntimeError('Variable "car" does not exist.', 19, $this->source); })()), "getImageUrl", [], "method", false, false, false, 19)), "html", null, true);
         echo "\"\">
         </div>
     </div>
@@ -233,7 +233,7 @@ class __TwigTemplate_d5ae19ff706b3dd6c0cf79370c4e6c57 extends Template
             {{ car.fuel }}
         </div>
         <div class=\"flex\">
-            <img class=\"object-scale-down h-48 w-48 rounded\" src=\"{{ car.getImageUrl() }}\"\">
+            <img class=\"object-scale-down h-48 w-48 rounded\" src=\"{{ car_images ~ car.getImageUrl() }}\"\">
         </div>
     </div>
 

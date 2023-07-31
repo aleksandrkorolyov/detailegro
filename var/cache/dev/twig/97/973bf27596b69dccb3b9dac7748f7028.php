@@ -108,11 +108,26 @@ class __TwigTemplate_b03c513b652aa04a8a56782386ff6d47 extends Template
 </div>
 
 <div>
+  ";
+        // line 29
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 29, $this->source); })()), "carImage", [], "any", false, false, false, 29), 'label', ["label_attr" => ["class" => " my-2 shadow-sm border-transparent bg-gray-300 hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-900 cursor-pointer rounded-md border p-2"], "label" => "Select image"]);
+        echo "
+  ";
+        // line 30
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 30, $this->source); })()), "carImage", [], "any", false, false, false, 30), 'widget', ["attr" => ["class" => "hidden"]]);
+        echo "
+  ";
+        // line 31
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 31, $this->source); })()), "carImage", [], "any", false, false, false, 31), 'errors');
+        echo "
+</div>
+
+<div>
   <button type=\"submit\" class=\"block w-full shadow-sm border-transparent bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-400 text-white rounded-md border p-2 mt-4 mb-2\">Add car</button>
 </div>
 ";
-        // line 31
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 31, $this->source); })()), 'form_end');
+        // line 37
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 37, $this->source); })()), 'form_end');
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
 
@@ -133,7 +148,7 @@ class __TwigTemplate_b03c513b652aa04a8a56782386ff6d47 extends Template
 
     public function getDebugInfo()
     {
-        return array (  115 => 31,  106 => 25,  102 => 24,  98 => 23,  91 => 19,  87 => 18,  83 => 17,  76 => 13,  72 => 12,  68 => 11,  61 => 7,  57 => 6,  53 => 5,  47 => 2,  43 => 1,);
+        return array (  130 => 37,  121 => 31,  117 => 30,  113 => 29,  106 => 25,  102 => 24,  98 => 23,  91 => 19,  87 => 18,  83 => 17,  76 => 13,  72 => 12,  68 => 11,  61 => 7,  57 => 6,  53 => 5,  47 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -163,6 +178,12 @@ class __TwigTemplate_b03c513b652aa04a8a56782386ff6d47 extends Template
   {{ form_label(form.image_url, 'Please enter image URL', {'label_attr': {'class': 'block text-sm text-gray-700 dark:text-gray-300 font-medium'}}) }}
   {{ form_widget(form.image_url, {'attr': {'class': 'block w-full shadow-sm border-gray-300 dark:border-transparent dark:text-gray-800 rounded-md border p-2 mt-1 mb-2'}}) }}
   {{ form_errors(form.image_url) }}
+</div>
+
+<div>
+  {{ form_label(form.carImage, 'Select image', {'label_attr': {'class': ' my-2 shadow-sm border-transparent bg-gray-300 hover:bg-gray-400 dark:bg-gray-700 dark:hover:bg-gray-900 cursor-pointer rounded-md border p-2'}}) }}
+  {{ form_widget(form.carImage, {'attr': {'class': 'hidden'}}) }}
+  {{ form_errors(form.carImage) }}
 </div>
 
 <div>

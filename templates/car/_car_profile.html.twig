@@ -9,7 +9,7 @@
             {{ car.fuel }}
         </div>
         <div class="flex">
-            <img class="object-scale-down h-48 w-48 rounded" src="{{ car.getImageUrl() }}"">
+            <img class="object-scale-down h-48 w-48 rounded" src="{{ car_images ~ car.getImageUrl() }}"">
         </div>
         <div class="text-sm text-gray-500 dark:text-gray-400">
             Avaliable parts: {{ car.carParts.count }}
