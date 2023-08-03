@@ -46,6 +46,14 @@ class CarRepository extends ServiceEntityRepository
 //        ;
 //    }
 
+    public function findByCurrentUser($currentUser) {
+        return $this->createQueryBuilder('c')
+        ->andWhere('c.owner = :current_user')
+        ->setParameter('current_user', $currentUser)
+        ->getQuery()
+        ->getResult();
+    }
+
     public function findAllWithParts() {
         return $this->createQueryBuilder('c')
         ->addSelect('p')

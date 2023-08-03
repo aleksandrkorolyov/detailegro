@@ -17,6 +17,7 @@ return [
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], [], []],
     'app_car_index' => [[], ['_controller' => 'App\\Controller\\CarController::index'], [], [['text', '/car/list']], [], [], []],
+    'app_my_car_index' => [[], ['_controller' => 'App\\Controller\\CarController::my_cars'], [], [['text', '/car/my_cars']], [], [], []],
     'app_car_add' => [[], ['_controller' => 'App\\Controller\\CarController::new'], [], [['text', '/car/add']], [], [], []],
     'app_car_show' => [['id'], ['_controller' => 'App\\Controller\\CarController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/car']], [], [], []],
     'app_car_edit' => [['id'], ['_controller' => 'App\\Controller\\CarController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/car']], [], [], []],
@@ -28,5 +29,7 @@ return [
     'app_car_part_delete' => [['id'], ['_controller' => 'App\\Controller\\CarPartController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/car_part']], [], [], []],
     'app_home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], [], []],
     'app_about' => [[], ['_controller' => 'App\\Controller\\HomeController::about'], [], [['text', '/about']], [], [], []],
+    'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
+    'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
     'app_user_profile' => [[], ['_controller' => 'App\\Controller\\UserController::index'], [], [['text', '/profile']], [], [], []],
 ];

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Car;
+use App\Entity\User;
 use App\Form\CarType;
 use App\Repository\CarRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,12 +25,26 @@ class CarController extends AbstractController
         ]);
     }
 
+    #[Route('/my_cars', name: 'app_my_car_index', methods: ['GET'])]
+    public function my_cars(CarRepository $carRepository): Response
+    {
+        /** @var User $currentUser */
+        $currentUser = $this->getUser();
+
+        return $this->render('car/car_list.html.twig', [
+            'cars' => $carRepository->findByCurrentUser($currentUser),
+        ]);
+    }
+
     #[Route('/add', name: 'app_car_add', methods: ['GET', 'POST'])]
     public function new(Request $request,
     SluggerInterface $slugger,
     EntityManagerInterface $entityManager
     ): Response
     {
+        /** @var User $currentUser */
+        $currentUser = $this->getUser();
+
         $car = new Car();
         $form = $this->createForm(CarType::class, $car);
         $form->handleRequest($request);
@@ -54,6 +69,7 @@ class CarController extends AbstractController
                 }
             }
             $car->setImageUrl($newFileName);
+            $car->setOwner($currentUser);
             $entityManager->persist($car);
             $entityManager->flush();
 

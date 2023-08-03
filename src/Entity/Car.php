@@ -30,6 +30,10 @@ class Car
     #[ORM\ManyToMany(targetEntity: CarPart::class, mappedBy: 'compatibility')]
     private Collection $carParts;
 
+    #[ORM\ManyToOne(inversedBy: 'cars')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $owner = null;
+
     public function __construct()
     {
         $this->carParts = new ArrayCollection();
@@ -116,6 +120,18 @@ class Car
         if ($this->carParts->removeElement($carPart)) {
             $carPart->removeCompatibility($this);
         }
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): static
+    {
+        $this->owner = $owner;
 
         return $this;
     }

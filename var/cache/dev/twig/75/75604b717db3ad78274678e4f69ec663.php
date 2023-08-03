@@ -88,15 +88,21 @@ class __TwigTemplate_98d3caaf853f94ccca2870c85fd8dcdd extends Template
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_car_part_index");
         echo "\" class=\"block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700\">Detailes</a>
                     </li>
+                    <li>
+                        <a href=\"";
+        // line 33
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_my_car_index");
+        echo "\" class=\"block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700\">My cars</a>
+                    </li>
                 </ul>
             </div>
 
     ";
-        // line 35
+        // line 38
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 35, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 35));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 38, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 38));
         foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-            // line 36
+            // line 39
             echo "        <div style=\"color:green\">";
             echo twig_escape_filter($this->env, $context["message"], "html", null, true);
             echo "</div>
@@ -105,12 +111,12 @@ class __TwigTemplate_98d3caaf853f94ccca2870c85fd8dcdd extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 38
+        // line 41
         echo "    
         ";
-        // line 39
+        // line 42
         $this->displayBlock('body', $context, $blocks);
-        // line 40
+        // line 43
         echo "    </body>
 </html>
 ";
@@ -181,7 +187,7 @@ class __TwigTemplate_98d3caaf853f94ccca2870c85fd8dcdd extends Template
 
     }
 
-    // line 39
+    // line 42
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -211,7 +217,7 @@ class __TwigTemplate_98d3caaf853f94ccca2870c85fd8dcdd extends Template
 
     public function getDebugInfo()
     {
-        return array (  185 => 39,  175 => 17,  165 => 16,  155 => 14,  145 => 13,  126 => 11,  114 => 40,  112 => 39,  109 => 38,  100 => 36,  96 => 35,  88 => 30,  82 => 27,  71 => 18,  69 => 16,  66 => 15,  64 => 13,  59 => 11,  47 => 1,);
+        return array (  191 => 42,  181 => 17,  171 => 16,  161 => 14,  151 => 13,  132 => 11,  120 => 43,  118 => 42,  115 => 41,  106 => 39,  102 => 38,  94 => 33,  88 => 30,  82 => 27,  71 => 18,  69 => 16,  66 => 15,  64 => 13,  59 => 11,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -246,6 +252,9 @@ class __TwigTemplate_98d3caaf853f94ccca2870c85fd8dcdd extends Template
                     </li>
                     <li>
                         <a href=\"{{ path('app_car_part_index')}}\" class=\"block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700\">Detailes</a>
+                    </li>
+                    <li>
+                        <a href=\"{{ path('app_my_car_index')}}\" class=\"block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700\">My cars</a>
                     </li>
                 </ul>
             </div>

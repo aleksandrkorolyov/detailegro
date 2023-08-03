@@ -11,3 +11,4 @@
 
 var/cache/*
 public/uploads/*
+var/cache/*
